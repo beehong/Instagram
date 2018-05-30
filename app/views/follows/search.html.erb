@@ -1,0 +1,26 @@
+<h1>Profile</h1>
+
+<% @user.order('id desc').each do |a| %>
+
+<h6>Following <%=a.followings.count%></h6>
+<h6>Follower <%=a.followers.count%></h6>
+<button><a href="/user/<%=a.id%>">Following</a></button>
+
+
+<h4>Past Posts</h4>
+	<% a.posts.order('id desc').each do |b| %>
+	  
+	 		 <%b.image.each do |x|%>
+	     		
+	     		
+	      	 <%=image_tag x.url, width:200, height:200, :class => "post-photo"%>
+	        		
+	    
+	  		<%end%>
+	<td><%= b.caption %></td>
+	<br>
+	
+
+		
+	<%end%>
+<%end%>

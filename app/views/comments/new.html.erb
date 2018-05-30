@@ -1,0 +1,17 @@
+<%= form_for(@comment, url: "/post/#{@post.id}/comment", html: {method: "post"}) do |form| %>
+
+
+<h4 class="content"><%=form.text_field :description %></h4>
+
+<div class="field">
+    <% form.label :user_id %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+<div class="field">
+    <% form.label :post_id %>
+    <%= form.hidden_field :post_id, :value => @post.id %>
+  </div>
+
+<%=form.submit 'Submit'%>
+<%end%>

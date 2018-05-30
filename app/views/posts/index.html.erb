@@ -1,0 +1,66 @@
+<%= form_tag '/search', method: 'post', :id => 'form', :class => 'form-inline my-2 my-lg-0' do %>
+	     <%= text_field_tag :query, "", :class =>'form-control mr-sm-2', list: "user" %>
+	     <datalist id="user"> 
+	    </datalist>
+	      <%= submit_tag "Search",:id => 'searchBtn',:class => 'btn btn-outline-primary my-2 my-sm-0'%>
+	      <% end %>
+
+
+
+
+<h1>Profile</h1>
+
+
+<h6>Following <%=current_user.followings.count%></h6>
+<h6>Follower <%=current_user.followers.count%></h6>
+
+<h4>Past Posts</h4>
+<% @post.order('id desc').each do |a| %>
+<div id = "post_<%=a.id%>">
+  
+ 		 <%a.image.each do |x|%>
+     		
+
+      	 <%=image_tag x.url, width:200, height:200, :class => "post-photo"%>
+        		
+  		<%end%>
+<td><%= a.caption %></td>
+<br>
+	<%if current_user.role == "admin"%>
+	<td><%= link_to 'User_profile', "/admin_index" %></td>
+	<br>
+
+		<%if a.comments != nil%>
+			<% a.comments.order('id desc').each do |b| %>
+			<strong id ="username"><%=b.user.username%></strong>
+			<td><%=b.description%></td>
+			<%end%>
+		<%end%>
+	<br>
+		
+	<%else%>
+		
+			<button><a href="/post/<%=a.id%>/like">Like <%=a.likes.count%> </a></button>
+			<button class= "comment-btn" id= "<%=a.id%>"><a href="/post/<%=a.id%>/comment">Comment</a></button>
+			<br>
+		
+		
+		<%if a.comments != nil%>
+			<% a.comments.order('id desc').each do |b| %>
+			<strong id ="username"><%=b.user.username%></strong>
+			<td><%=b.description%></td>
+			<%end%>
+		<%end%>
+
+		<br>
+		<br>
+		<%if current_user.id == a.user_id %>
+			<td><%= link_to 'Edit', "/post/#{a.id}/edit"%></td>
+		   	<td><%= link_to 'Destroy', {action: :destroy, id: a.id}, method: :delete, remote: true, data:{ confirm: 'Are you sure?'} %></td>
+</div>
+		<%end%>
+	<%end%>
+		
+<%end%>
+
+

@@ -1,0 +1,10 @@
+<h1>Edit post</h1>
+
+<%= form_for(@post, url: "/post/#{@post.id}/edit", html: {method: "post"}) do |form| %>
+
+<strong>Caption</strong>
+<h4 class="content"><%=form.text_field :caption, :value => @post.caption %></h4>
+
+
+<%=form.submit 'Update'%>
+<%end%>

@@ -1,0 +1,19 @@
+<html>
+
+<body>
+  <h2>Welcome to Instagram</h2>
+  
+  
+<%= form_for(@user, url: "/sign_up", html: {method: "post"}) do |form| %> 
+    <%= render partial: '/users/form', object: form %>
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+
+    
+
+    <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+  <% end %>
+</body>
+</html>
