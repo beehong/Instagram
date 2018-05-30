@@ -2,11 +2,13 @@
   <tr>
     <th>Restaurant Name</th>
     <th>Restaurant Address</th>
-   </tr>
-    <%@a.each do |x|%>
-      <tr>
-        <td><%=x.name%></td>
-        <td><%=x.formatted_address%></td>
-      </tr>
-    <%end%>
+  </tr>
+  <%@a.each do |x|%>
+    <tr>
+      <td><%=x.name%></td>
+      <td><%=x.formatted_address%></td>
+    
+    </tr>
+  <%end%>
+
 </table>
