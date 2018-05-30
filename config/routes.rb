@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 get "/sign_up" => "users#new"
 post "/sign_up" => "users#create"
 get "/sign_in" => "sessions#new"
+
 post "/sign_in" => "sessions#create"
 delete "/logout" => "sessions#destroy"
 
@@ -33,6 +34,9 @@ get "/admin_search" => "users#index"
 get "/user/:id" => "follows#follower"
 post "/search" => "follows#search"
 get "/search" => "follows#search"
+
+##hashtag
+get "/hashtag_search" => "searches#search"
 
 root to: "home#index"
 end

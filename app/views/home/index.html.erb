@@ -1,3 +1,14 @@
+<h1> Search for some good restaurant for photo taking</h1>
+
+<%= form_tag '/hashtag_search', method: 'get', :id => 'form', :class => 'form-inline my-2 my-lg-0' do %>
+<%= text_field_tag "query", nil, placeholder: "Search" %><br>	     
+	 <%= submit_tag "Search",:id => 'searchBtn',:class => 'btn btn-outline-primary my-2 my-sm-0'%>
+<% end %>
 
 
-<h1> Home</h1>
+
+
+
+
+
+	

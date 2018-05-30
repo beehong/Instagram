@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :followings
   has_many :followers
+  has_many :searches
   mount_uploader :profile_photo, AvatarUploader
   validates :email, presence:true, uniqueness: true
 

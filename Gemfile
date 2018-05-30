@@ -36,9 +36,9 @@ gem "bcrypt"
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 gem 'omniauth'
-# gem 'omniauth-facebook' 
-gem 'omniauth-twitter'
+gem 'instagram'
 gem 'pg_search'
+gem 'google_places'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -58,3 +58,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'unirest'
