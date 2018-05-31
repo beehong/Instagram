@@ -7,10 +7,11 @@ class CommentsController < ApplicationController
     end
 
     def create
+
 		@post = Post.find(params[:id])
 
 	    @comment = Comment.new(comment_params)
-	    byebug
+	    
 	    	if @comment.save
 		      	redirect_to "/index" ,notice: 'Comment added.'
 		    else

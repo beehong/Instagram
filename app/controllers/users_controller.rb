@@ -6,6 +6,7 @@ class UsersController <  ApplicationController
 	end 
 
 	def create
+		
 		@user = User.new(user_params)
 		   
 		    # store all emails in lowercase to avoid duplicates and case-sensitive login errors:

@@ -9,8 +9,13 @@ RSpec.describe User, :type => :model do
 				email: "abc@gmail.com",
 				username: "abc",
 				password: "abc",
-				)}
-			Then {user.valid? == true}
+				)
+			}
+			
+			Then {
+				
+				user.valid? == true
+			}
 		end
 
 		##sad path

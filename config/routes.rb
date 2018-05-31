@@ -21,7 +21,7 @@ get "/post/:id/like" => "posts#like"
 
 ##comment
 get "/post/:id/comment" => "comments#new"
-post "/post/:id/comment" => "users#create"
+post "/post/:id/comment" => "comments#create"
 
 
 ##admin
